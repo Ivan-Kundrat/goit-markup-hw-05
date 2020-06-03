@@ -118,7 +118,6 @@ img {
 .site-nav .link.current::after {
   position: absolute;
   bottom: 0;
-  display: block;
   background-repeat: no-repeat;
   content: "";
   height: 4px;
@@ -548,13 +547,27 @@ footer {
   border: 1px solid #eeeeee;
   border-radius: 5px;
 }
-.extended-list .link:hover {
-  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    0px 1px 1px rgba(0, 0, 0, 0.12);
-}
+.extended-list .link:hover,
 .extended-list .link:focus {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
+}
+.thumb {
+  position: relative;
+  width: 370px;
+  height: 294px;
+}
+.thumb::before {
+  position: absolute;
+  display: inline-block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+}
+.thumb:hover::before {
+  opacity: 1;
 }
 .extended-list .description {
   width: 370px;
@@ -580,11 +593,20 @@ footer {
   padding-left: 24px;
 }
 
-.filter .text-hover {
-  background-color: var(--accent-color);
+.thumb .text-hover {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #ffffff;
+  width: 322px;
+  height: 168px;
 
   font-size: 18px;
   line-height: 1.56;
-  display: none;
+  opacity: 0;
+}
+.thumb .text-hover:hover {
+  opacity: 1;
 }
