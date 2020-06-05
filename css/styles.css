@@ -588,7 +588,6 @@ footer {
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
   transform: translateY(100%);
-  transition-property: opacity;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
