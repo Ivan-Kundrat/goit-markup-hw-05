@@ -61,9 +61,7 @@ img {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-.header {
-  position: relative;
-}
+
 .navigation {
   display: flex;
   align-items: center;
@@ -90,8 +88,10 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-
+  height: 80px;
   display: flex;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .site-nav .item {
@@ -100,35 +100,34 @@ img {
 .site-nav .item:last-child {
   margin-right: 0px;
 }
+.site-nav .link {
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
 }
-.site-nav .link.current {
+.link.current {
+  position: relative;
   color: var(--accent-color);
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  align-items: flex-start;
+  height: 48px;
 }
-.link.current.first {
-  width: 49px;
-}
-.link.current.second {
-  width: 77px;
-}
-.site-nav .link.current::after {
+
+.link.current::after {
+  display: inline-block;
   position: absolute;
-  bottom: 0;
-  background-repeat: no-repeat;
   content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
   height: 4px;
-}
-.first::after {
-  width: 47px;
-  background-image: url(./../images/hover1.svg);
-}
-.second::after {
-  width: 77px;
-  background-image: url(./../images/hover2.svg);
+
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 .comunication {
@@ -145,6 +144,11 @@ img {
 }
 .comunication .item:last-child {
   margin-right: 0px;
+}
+.comunication .link {
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .comunication .link:hover,
@@ -359,6 +363,9 @@ p {
   margin-right: 10px;
   padding-top: 12px;
   fill: #afb1b8;
+  transition-property: background-color border-radius fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .command-player .social-links .link:hover,
 .command-player .social-links .link:focus {
@@ -398,6 +405,9 @@ p {
   width: 175px;
   height: 90px;
   fill: #afb1b8;
+  transition-property: border-color fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list .link:hover,
 .clients-list .link:focus {
@@ -464,6 +474,9 @@ footer {
   width: 44px;
   height: 44px;
   fill: #ffffff;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer .social-links .link:hover,
 .footer .social-links .link:focus {
@@ -516,8 +529,10 @@ footer {
   line-height: 1.62;
   text-align: center;
   border: 0;
-
   padding: 6px 22px;
+  transition-property: background-color color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter .button:hover,
 .filter .button:focus {
@@ -546,6 +561,9 @@ footer {
   width: 370px;
   border: 1px solid #eeeeee;
   border-radius: 5px;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .extended-list .link:hover,
 .extended-list .link:focus {
@@ -556,6 +574,10 @@ footer {
   position: relative;
   width: 370px;
   height: 294px;
+  overflow: hidden;
+}
+.thumb:hover::before {
+  transform: translateY(0);
 }
 .thumb::before {
   position: absolute;
@@ -565,10 +587,15 @@ footer {
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
+  transform: translateY(100%);
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .thumb:hover::before {
   opacity: 1;
 }
+
 .extended-list .description {
   width: 370px;
   background-color: #ffffff;
@@ -606,6 +633,9 @@ footer {
   font-size: 18px;
   line-height: 1.56;
   opacity: 0;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .thumb .text-hover:hover {
   opacity: 1;
